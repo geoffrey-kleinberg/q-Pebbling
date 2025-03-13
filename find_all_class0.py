@@ -1,22 +1,19 @@
-import all_graphs
 import graph
 import pebbling
-
-def write_class_0(n, edges, q, graph_num):
-    with open(f'class0/graphs-{q}-2.txt', 'a') as f:
-        f.write(f'{n}: {graph_num} {edges}\n')
+import utilities
 
 def do_all_n_q(n, q):
+
+    utilities.clear_file(n, q, 'class0')
+
     class_0_pebbles = (n - 1) * (q - 1) + 1
 
     graph_num = 1
-    lines = all_graphs.get_lines_by_graph_num(n, graph_num)
+    lines = utilities.get_lines_by_graph_num(n, graph_num)
 
-    checked = 0
+    evaluated = 0
 
     while len(lines) > 1:
-        if graph_num % 100 == 0:
-            print(graph_num)
 
         ve_data = lines[2].split(' ')
         vertices = int(ve_data[0])
@@ -25,45 +22,41 @@ def do_all_n_q(n, q):
             break
             
         edges = int(ve_data[1])
-
-        if edges != 17:
-            graph_num += 1
-            lines = all_graphs.get_lines_by_graph_num(n, graph_num)
-            continue
-        else:
-            checked += 1
-            print(f'checking = {checked} of 31400')
         
 
         class_0_threshold = (n - 1) * (n - 2) / 2 + q
         if edges >= class_0_threshold:
-            write_class_0(n, edges, q, graph_num)
+            utilities.write_answer(n, edges, class_0_pebbles, q, graph_num, 'class0')
             graph_num += 1
-            lines = all_graphs.get_lines_by_graph_num(n, graph_num)
+            lines = utilities.get_lines_by_graph_num(n, graph_num)
             continue
 
-        g = all_graphs.make_from_edge_list(lines[3])
+        g = utilities.make_from_edge_list(lines[3])
 
         diameter = graph.Graph.calculate_diameter(g)
 
         if q ** diameter > class_0_pebbles:
             graph_num += 1
-            lines = all_graphs.get_lines_by_graph_num(n, graph_num)
+            lines = utilities.get_lines_by_graph_num(n, graph_num)
             continue
 
         answer = pebbling.pebbling_number(g, q=q, d=diameter, cap=class_0_pebbles)
+        evaluated += 1
 
         if answer == class_0_pebbles:
-            write_class_0(n, edges, q, graph_num)
-        
-        
+            utilities.write_answer(graph_num, edges, class_0_pebbles, q, graph_num, 'class0')
 
         graph_num += 1
-        lines = all_graphs.get_lines_by_graph_num(n, graph_num)
+        lines = utilities.get_lines_by_graph_num(n, graph_num)
+
+    with open(f'diameter-2/graph{n}-{q}.txt', 'a') as f:
+        f.write(f'Evaluated {evaluated} graphs\n')
+
+    
 
 if __name__ == '__main__':
-    q = 3
+    q = 2
 
-    for n in range(9, 10):
+    for n in range(4, 5):
         print(f'n = {n}')
         do_all_n_q(n, q)
