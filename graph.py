@@ -13,13 +13,6 @@ class Graph:
     def get_neighbors(self, node):
         return self.graph[node]
     
-    def get_dist_two(self, node):
-        neighbors = self.get_neighbors(node)
-        dist_two = set(())
-        for neighbor in neighbors:
-            dist_two = dist_two.union(self.get_neighbors(neighbor))
-        return dist_two
-    
     def get_dist(self, v, u):
         dist = 0
         visited = set(())
@@ -42,6 +35,8 @@ class Graph:
             for line in f:
                 u, neighbors = line.split(':')
                 for v in neighbors.strip().split(','):
+                    if v == '':
+                        continue
                     g.add_edge(int(u), int(v))
                     g.add_edge(int(v), int(u))
 
