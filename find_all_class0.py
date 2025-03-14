@@ -56,7 +56,6 @@ def do_all_n_q(n, q):
 
 if __name__ == '__main__':
     q = 2
+    n = 3
 
-    for n in range(4, 5):
-        print(f'n = {n}')
-        do_all_n_q(n, q)
+    do_all_n_q(n, q)

@@ -45,9 +45,8 @@ def do_all_n_q(n, q):
         f.write(f'Evaluated {count_evaluated} graphs\n')
 
 if __name__ == '__main__':
+    
     q = 2
-    for n in range(3, 4):
+    n = 3
 
-        print(n)
-
-        do_all_n_q(n, q)
+    do_all_n_q(n, q)
