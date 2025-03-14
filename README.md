@@ -30,7 +30,7 @@ print(pebbling_number(g, q=q))
 
 ## Find the $q$-Pebbling Number of Many Graphs
 
-The `all_graphs` directory contains every connected graph on 3 to 9 vertices. These files can be found on [this page](https://users.cecs.anu.edu.au/~bdm/data/graphs.html). Graph data is stored in g6 format. Information on how to read a graph stored in g6 format is found [here](https://users.cecs.anu.edu.au/~bdm/data/formats.html). For the code in this repo, download the executable corresponding to your machine and place it in this repo's directory. For further information on the g6 format, see [this page](https://users.cecs.anu.edu.au/~bdm/data/formats.txt).
+The `all_graphs` directory contains files that list every connected graph on 3 to 7 vertices. These files, and files with all graphs from 8 to 11 vertices, can be found on [this page](https://users.cecs.anu.edu.au/~bdm/data/graphs.html). Graph data is stored in g6 format. Information on how to read a graph stored in g6 format is found [here](https://users.cecs.anu.edu.au/~bdm/data/formats.html). For the code in this repo, download the executable corresponding to your machine and place it in this repo's directory. For further information on the g6 format, see [this page](https://users.cecs.anu.edu.au/~bdm/data/formats.txt).
 
 Several functions are already included. Using `all_graphs.py`, you can calculate the $q$-pebbling number of all graphs of order $n$. For most cases, this will take an extraordinarily long time to run. To find the $q$-pebbling number of all graphs on $n$ vertices of diameter 2, use `diameter2_all.py`. To find all Class $0_q$ graphs on $n$ vertices, use `find_all_class0.py`. 
 
