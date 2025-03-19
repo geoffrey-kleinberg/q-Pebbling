@@ -22,7 +22,7 @@ def do_all_n_q(n, q):
         edges = int(ve_data[1])
         class_0_threshold = (n - 1) * (n - 2) / 2 + q
         if edges >= class_0_threshold:
-            utilities.write_answer(n, diameter, (n - 1) * (q - 1) + 1, q, graph_num, 'diameter-2')
+            utilities.write_answer(n, (n - 1) * (q - 1) + 1, q, graph_num, 'diameter-2')
             graph_num += 1
             lines = utilities.get_lines_by_graph_num(n, graph_num)
             count_evaluated += 1
@@ -36,7 +36,7 @@ def do_all_n_q(n, q):
         answer = pebbling.pebbling_number(g, q=q, d=diameter)
         count_evaluated += 1
 
-        utilities.write_answer(n, diameter, answer, q, graph_num, 'diameter-2')
+        utilities.write_answer(n, answer, q, graph_num, 'diameter-2')
 
         graph_num += 1
         lines = utilities.get_lines_by_graph_num(n, graph_num)

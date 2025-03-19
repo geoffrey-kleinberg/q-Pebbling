@@ -96,7 +96,7 @@ def clear_file(n, q, folder_name):
     with open(f'{folder_name}/graph{n}-{q}.txt', 'w') as f:
         f.write('')
 
-def write_answer(n, edges, answer, q, graph_num, folder_name):
+def write_answer(n, answer, q, graph_num, folder_name):
     with open(f'{folder_name}/graph{n}-{q}.txt', 'a') as f:
         f.write(f'{graph_num}: {answer}\n')
 

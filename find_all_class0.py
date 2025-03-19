@@ -26,7 +26,7 @@ def do_all_n_q(n, q):
 
         class_0_threshold = (n - 1) * (n - 2) / 2 + q
         if edges >= class_0_threshold:
-            utilities.write_answer(n, edges, class_0_pebbles, q, graph_num, 'class0')
+            utilities.write_answer(n, class_0_pebbles, q, graph_num, 'class0')
             graph_num += 1
             lines = utilities.get_lines_by_graph_num(n, graph_num)
             continue
@@ -44,7 +44,7 @@ def do_all_n_q(n, q):
         evaluated += 1
 
         if answer == class_0_pebbles:
-            utilities.write_answer(graph_num, edges, class_0_pebbles, q, graph_num, 'class0')
+            utilities.write_answer(graph_num, class_0_pebbles, q, graph_num, 'class0')
 
         graph_num += 1
         lines = utilities.get_lines_by_graph_num(n, graph_num)

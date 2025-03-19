@@ -24,7 +24,7 @@ def do_all_n_q(n, q):
 
         class_0_threshold = (n - 1) * (n - 2) / 2 + q
         if edges >= class_0_threshold:
-            utilities.write_answer(n, edges, (n - 1) * (q - 1) + 1, q, graph_num, 'pebbling_nums')
+            utilities.write_answer(n, (n - 1) * (q - 1) + 1, q, graph_num, 'pebbling_nums')
             graph_num += 1
             lines = utilities.get_lines_by_graph_num(n, graph_num)
             continue
@@ -37,7 +37,7 @@ def do_all_n_q(n, q):
 
         answer = pebbling.pebbling_number(g, q=q, d=diameter)
 
-        utilities.write_answer(n, edges, answer, q, graph_num, 'pebbling_nums')
+        utilities.write_answer(n, answer, q, graph_num, 'pebbling_nums')
 
         graph_num += 1
         lines = utilities.get_lines_by_graph_num(n, graph_num)
