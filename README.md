@@ -1,6 +1,6 @@
 # $q$-Pebbling
 
-This repository contains code for calculating the $q$-pebbling number of a graph, as well as computed information about Class $0_q$ graphs.
+This repository contains code for calculating the $q$-pebbling number of a graph, as well as helper code to calculate the $q$-pebbling number of many graphs.
 
 ## Calculate the $q$-Pebbling Number of a Specific Graph
 
